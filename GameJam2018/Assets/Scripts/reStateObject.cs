@@ -7,8 +7,8 @@ public class reStateObject : MonoBehaviour {
 	public Transform initialState;
 	public Transform finalState;
 	public Transform player;
-	public BoxCollider bxCol;
-	public MeshRenderer mRend;
+	private BoxCollider bxCol;
+	private MeshRenderer mRend;
 
 	public float maxDist;
 	public float minDist;
@@ -53,11 +53,15 @@ public class reStateObject : MonoBehaviour {
 	}
 
 	void reSize (float multiplier) {
-		transform.localScale = initialState.localScale + (finalState.localScale * multiplier);
+		Vector3 posDiff = finalState.localScale - initialState.localScale;
+		Vector3 scaleAdjust = posDiff * multiplier;
+		transform.localScale = initialState.localScale + scaleAdjust;
 	}
 
 	void rePosition (float multiplier) {
-		transform.localScale = initialState + (finalState.localScale * multiplier);
+		Vector3 posDiff = finalState.position - initialState.position;
+		Vector3 positionAdjust = posDiff * multiplier;
+		transform.position = initialState.position + positionAdjust;
 	}
 
 	void setFinalState () {

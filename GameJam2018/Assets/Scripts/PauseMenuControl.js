@@ -27,5 +27,5 @@ public function Exit() {
 }
 
 public function Reset() {
-	SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+	//SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 }
