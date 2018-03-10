@@ -22,7 +22,6 @@ function Start() {
 
 function Update() {
 	fwd = transform.TransformDirection(Vector3.forward);
-
 	if(Physics.Raycast(transform.position, fwd, hit, rayLength)) {
 		if(hit.collider.gameObject.tag == "OpenDoor") {
 			guiShow = true;
