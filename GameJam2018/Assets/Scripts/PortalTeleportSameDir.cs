@@ -5,7 +5,7 @@ using UnityEngine;
 public class PortalTeleportSameDir : MonoBehaviour {
 	public Transform reciever;
 	public Transform player;
-	public Transform playerCam;
+	public Transform playerParent;
 
 	private bool playerInField = false;
 
@@ -13,16 +13,15 @@ public class PortalTeleportSameDir : MonoBehaviour {
 		if (playerInField) {
 			playerInField = false;
 			print ("ThisIsRunning");
-			Vector3 portalToPlayer = player.position - transform.position;
+			Vector3 portalToPlayer = playerParent.position - transform.position;
 			float dotProduct = Vector3.Dot(transform.up, portalToPlayer);
 		
 			//player has moved into portal, teleport
 			if (dotProduct < 0f) {
 			    //Vector3 angleAdjust = player.eulerAngles + 0f * Vector3.up;
-				player.Rotate(Vector3.up, 180);
-				playerCam.Rotate (Vector3.up, 180);
+				playerParent.Rotate(Vector3.up, 180);
 				Vector3 positionOffset = portalToPlayer;
-				player.position = reciever.position + positionOffset;
+				playerParent.position = reciever.position + positionOffset;
 			}
 		}
 	}
