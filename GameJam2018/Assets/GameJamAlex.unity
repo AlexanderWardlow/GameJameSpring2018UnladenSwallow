@@ -1129,11 +1129,6 @@ Transform:
   m_Father: {fileID: 1323693854}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &743411164 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 4281104326038062, guid: b8ac87e76436ef742b3cb1cb7bb0d164,
-    type: 2}
-  m_PrefabInternal: {fileID: 2062382518}
 --- !u!1 &844093449
 GameObject:
   m_ObjectHideFlags: 0
@@ -2021,25 +2016,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3354fa2040b399b4091da9a99f4dc9d8, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1874023977 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1839784062557488, guid: b8ac87e76436ef742b3cb1cb7bb0d164,
-    type: 2}
-  m_PrefabInternal: {fileID: 2062382518}
---- !u!114 &1874023978
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1874023977}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46d625893413bd746a9e09f7d9686ece, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  openDoorSound: {fileID: 8300000, guid: 0ec77abd7b42a4149aa779ef60893f4e, type: 3}
-  closeDoorSound: {fileID: 8300000, guid: 12e6b80489bd9464e81c0f23330b4816, type: 3}
-  onHand: {fileID: 743411164}
 --- !u!1 &1908694787
 GameObject:
   m_ObjectHideFlags: 0
@@ -2336,7 +2312,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 114490874481069140, guid: b8ac87e76436ef742b3cb1cb7bb0d164, type: 2}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b8ac87e76436ef742b3cb1cb7bb0d164, type: 2}
   m_IsPrefabParent: 0
