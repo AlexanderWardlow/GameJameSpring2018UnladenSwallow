@@ -111,7 +111,7 @@ function pickUp(oPU : GameObject) {
 	object.transform.position = onHand.position;
 	object.transform.rotation = Quaternion.Euler(Vector3(0,0,0));
 	pickedUpObjectParent = object.transform.parent;
-	object.transform.parent = GameObject.Find("FPSController").transform;
+	object.transform.parent = GameObject.Find("Player").transform;
 	object.transform.parent = GameObject.Find("FirstPersonCharacter").transform;
 }
 
