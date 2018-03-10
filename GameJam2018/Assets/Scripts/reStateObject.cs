@@ -35,15 +35,17 @@ public class reStateObject : MonoBehaviour {
 				reState ();
 			} 
 			else {
-				setInitialState ();
+				setFinalState ();
 			}
 		}
 		else {
-			setFinalState ();
+			setInitialState ();
 		}
 	}
 
 	void reState () {
+		bxCol.enabled = false;
+		mRend.enabled = true;
 		float progresion = maxDist - distanceToPlayer;
 		float total = maxDist - minDist;
 		float multiplier = progresion / total;
@@ -53,8 +55,8 @@ public class reStateObject : MonoBehaviour {
 	}
 
 	void reSize (float multiplier) {
-		Vector3 posDiff = finalState.localScale - initialState.localScale;
-		Vector3 scaleAdjust = posDiff * multiplier;
+		Vector3 scaleDiff = finalState.localScale - initialState.localScale;
+		Vector3 scaleAdjust = scaleDiff * multiplier;
 		transform.localScale = initialState.localScale + scaleAdjust;
 	}
 
