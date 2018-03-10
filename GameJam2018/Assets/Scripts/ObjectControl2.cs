@@ -5,7 +5,7 @@ using UnityEngine;
 public class ObjectControl2 : MonoBehaviour {
 
 	private bool guiShow = false;
-	static bool pickedUp = false;
+	public static bool pickedUp = false;
 	public AudioClip openDoorSound;
 	public AudioClip closeDoorSound;
 	public Transform onHand;
