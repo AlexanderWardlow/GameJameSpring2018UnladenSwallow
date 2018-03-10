@@ -37,7 +37,7 @@ GameObject:
   - component: {fileID: 20426209881200990}
   - component: {fileID: 81042590838514274}
   - component: {fileID: 124811949689948388}
-  - component: {fileID: 114490874481069140}
+  - component: {fileID: 114574335174858132}
   m_Layer: 0
   m_Name: FirstPersonCharacter
   m_TagString: MainCamera
@@ -98,7 +98,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1874755224309612}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.26, y: 8.213, z: 8.36}
+  m_LocalPosition: {x: 64.26, y: 27.21, z: -25.64}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4426317705523122}
@@ -345,7 +345,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 8bc94ec6ed537e743b481638bdcd503d, type: 3}
   m_JumpSound: {fileID: 8300000, guid: 5897aeed9b676024fbb8c694b421a861, type: 3}
   m_LandSound: {fileID: 8300000, guid: 3b09d59f4499d45428baa7a21e954296, type: 3}
---- !u!114 &114490874481069140
+--- !u!114 &114574335174858132
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -353,14 +353,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1839784062557488}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f2605f41be2b41448df20a2d8863f97, type: 3}
+  m_Script: {fileID: 11500000, guid: 46d625893413bd746a9e09f7d9686ece, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   openDoorSound: {fileID: 8300000, guid: 0ec77abd7b42a4149aa779ef60893f4e, type: 3}
   closeDoorSound: {fileID: 8300000, guid: 12e6b80489bd9464e81c0f23330b4816, type: 3}
   onHand: {fileID: 4281104326038062}
-  fwd: {x: 0, y: 0, z: 0}
-  rayLength: 10
 --- !u!124 &124811949689948388
 Behaviour:
   m_ObjectHideFlags: 1

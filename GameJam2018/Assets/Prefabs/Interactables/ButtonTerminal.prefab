@@ -2996,3 +2996,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anim: {fileID: 95219057298980012}
   correctCubeColor: Black
+  cantPickupAfter: 0
+  anim2: []
+  animOn: []
+  animOff: []
+  activeOn: []
+  activeOff: []
