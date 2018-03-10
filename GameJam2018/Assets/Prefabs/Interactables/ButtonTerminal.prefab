@@ -767,7 +767,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1357329408427400}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 15.180933, y: 1.56, z: 20.091635}
+  m_LocalPosition: {x: -12, y: -17, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4179915338481984}
@@ -1745,7 +1745,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: fac678be85d517244963ed2c75224354, type: 2}
+  - {fileID: 2100000, guid: 8a086bd3158fb594f91cd59d6cad4644, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2978,7 +2978,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: cb12ca3832c8866468ba8b43971842a1, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
@@ -2995,10 +2995,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 95219057298980012}
-  correctCubeColor: Black
+  correctCubeColor: Red
   cantPickupAfter: 0
+  undoCor: 0
+  undoWrong: 0
   anim2: []
-  animOn: []
-  animOff: []
-  activeOn: []
-  activeOff: []
+  CoranimOn: []
+  CoranimOff: []
+  CoractiveOn: []
+  CoractiveOff:
+  - {fileID: 0}
+  WronganimOn: []
+  WronganimOff: []
+  WrongactiveOn: []
+  WrongactiveOff: []
