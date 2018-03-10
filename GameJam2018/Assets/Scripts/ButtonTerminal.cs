@@ -70,7 +70,9 @@ public class ButtonTerminal : MonoBehaviour
 
 	void OnTriggerStay(Collider other) {
 		if (ObjectControl2.pickedUp == false) {
-			other.transform.position = transform.position;
+			if (other.tag == "PickUpAble") {
+				other.transform.position = transform.position;
+			}
 		}
 	}
 
