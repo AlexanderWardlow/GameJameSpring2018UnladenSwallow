@@ -4,16 +4,18 @@ using UnityEngine;
 
 public class RotatePlayer : MonoBehaviour {
 
-	public float rotationSpeed = 10.0f;
-	public float cameraSpeed = 1000f;
+	public float rotationSpeed = 1000.0f;
+	public float cameraSpeed = 5000f;
 	public Transform playerCam;
 
+	private float verticalRotation;
 
 	void FixedUpdate () {
 		float h = rotationSpeed * Input.GetAxis ("Mouse X");
+		h *= Time.deltaTime * 10;
 		transform.Rotate(0, h, 0);
-		float v = cameraSpeed * Input.GetAxis ("Mouse Y");
-		v *= Time.deltaTime*2;
-		playerCam.Rotate(-v,0,0);
+		verticalRotation -= Input.GetAxis ("Mouse Y") * 5f * Time.deltaTime * 10;
+		verticalRotation = Mathf.Clamp (verticalRotation, -90, 90);
+		playerCam.localRotation = Quaternion.Euler (verticalRotation, 0, 0);
 	}
 }
