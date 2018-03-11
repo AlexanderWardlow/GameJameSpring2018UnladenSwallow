@@ -8,12 +8,7 @@ public class OpenWhenPlayerLooksAway : MonoBehaviour {
 	public string ifSeen;
 	public string ifNotSeen;
 	public bool doToggle;
-	private Renderer R;
-
-	// Use this for initialization
-	void Start () {
-		R = transform.gameObject.GetComponent<Renderer> ();
-	}
+	public Renderer R;
 	
 	// Update is called once per frame
 	void Update () {
