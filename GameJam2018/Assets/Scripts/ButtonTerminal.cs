@@ -10,9 +10,15 @@ public class ButtonTerminal : MonoBehaviour
     public bool undoCor;
     public bool undoWrong;
 
+    //Audio For Doors
     public AudioSource doors;
     public AudioClip[] doorClip;
     public bool doorSound;
+    //Audio For Button Sound
+    public AudioSource button;
+    public AudioClip[] buttonClip;
+    //public bool buttonSound; //We may or may not use this depending on how it sounds
+    //Stuff that alex did
     public Animator[] anim2;
     public string[] CoranimOn;
     public string[] CoranimOff;
@@ -41,6 +47,7 @@ public class ButtonTerminal : MonoBehaviour
                     
                     anim.SetBool("CorrectAnswer", true);
                     anim.SetBool("WrongAnswer", false);
+                    button.PlayOneShot(buttonClip[0]);//If it sounds bad put this in if
                     if (doorSound)
                     {
                         doors.PlayOneShot(doorClip[0]);
@@ -50,6 +57,7 @@ public class ButtonTerminal : MonoBehaviour
                 }
                 else
                 {
+                    button.PlayOneShot(buttonClip[1]);//If it sounds bad put this in if
                     WrongEffect();
                     anim.SetBool("CorrectAnswer", false);
                     anim.SetBool("WrongAnswer", true);
