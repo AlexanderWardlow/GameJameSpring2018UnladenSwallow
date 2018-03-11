@@ -10,6 +10,9 @@ public class ButtonTerminal : MonoBehaviour
     public bool undoCor;
     public bool undoWrong;
 
+    public AudioSource doors;
+    public AudioClip[] doorClip;
+    public bool doorSound;
     public Animator[] anim2;
     public string[] CoranimOn;
     public string[] CoranimOff;
@@ -39,6 +42,10 @@ public class ButtonTerminal : MonoBehaviour
                     
                     anim.SetBool("CorrectAnswer", true);
                     anim.SetBool("WrongAnswer", false);
+                    if (doorSound)
+                    {
+                        doors.PlayOneShot(doorClip[0]);
+                    }
                     CorrectEffect();
 
                 }
@@ -58,6 +65,10 @@ public class ButtonTerminal : MonoBehaviour
         {
             if (anim.GetBool("CorrectAnswer") && undoCor) {
                 UndoCorrectEffect();
+                if (doorSound)
+                {
+                    doors.PlayOneShot(doorClip[1]);
+                }
             }
             if (anim.GetBool("WrongAnswer") && undoWrong) {
                 UndoWrongEffect();
