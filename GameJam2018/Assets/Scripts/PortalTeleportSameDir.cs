@@ -5,23 +5,21 @@ using UnityEngine;
 public class PortalTeleportSameDir : MonoBehaviour {
 	public Transform reciever;
 	public Transform player;
-	public Transform playerParent;
 
 	private bool playerInField = false;
 
 	void Update () {
 		if (playerInField) {
 			playerInField = false;
-			print ("ThisIsRunning");
-			Vector3 portalToPlayer = playerParent.position - transform.position;
+			Vector3 portalToPlayer = player.position - transform.position;
 			float dotProduct = Vector3.Dot(transform.up, portalToPlayer);
 		
 			//player has moved into portal, teleport
 			if (dotProduct < 0f) {
 			    //Vector3 angleAdjust = player.eulerAngles + 0f * Vector3.up;
-				playerParent.Rotate(Vector3.up, 180);
+				player.Rotate(Vector3.up, 180);
 				Vector3 positionOffset = portalToPlayer;
-				playerParent.position = reciever.position + positionOffset;
+				player.position = reciever.position + positionOffset;
 			}
 		}
 	}

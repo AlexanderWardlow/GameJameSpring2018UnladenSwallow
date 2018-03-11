@@ -25,7 +25,6 @@ public class ButtonTerminal : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        print("wasup");
         //FIXME need to convert the objectControl to a c# class and check if object can be picked up
         if (!anim.GetBool("boxPresent"))
         {
