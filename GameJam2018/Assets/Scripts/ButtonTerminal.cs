@@ -15,7 +15,7 @@ public class ButtonTerminal : MonoBehaviour
     public AudioClip[] doorClip;
     public bool doorSound;
     //Audio For Button Sound
-    public AudioSource[] button;
+    public AudioSource button;
     public AudioClip[] buttonClip;
     //public bool buttonSound; //We may or may not use this depending on how it sounds
     //Stuff that alex did
@@ -47,7 +47,9 @@ public class ButtonTerminal : MonoBehaviour
                     
                     anim.SetBool("CorrectAnswer", true);
                     anim.SetBool("WrongAnswer", false);
-                    button[0].PlayOneShot(buttonClip[0]);//If it sounds bad put this in if
+
+                    button.PlayOneShot(buttonClip[0]);//If it sounds bad put this in if
+
                     if (doorSound)
                     {
                         doors[0].PlayOneShot(doorClip[0]);
@@ -57,7 +59,7 @@ public class ButtonTerminal : MonoBehaviour
                 }
                 else
                 {
-                    button[0].PlayOneShot(buttonClip[1]);//If it sounds bad put this in if
+                    button.PlayOneShot(buttonClip[1]);//If it sounds bad put this in if
                     WrongEffect();
                     anim.SetBool("CorrectAnswer", false);
                     anim.SetBool("WrongAnswer", true);

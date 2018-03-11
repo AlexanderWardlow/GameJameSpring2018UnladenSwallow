@@ -15,7 +15,7 @@ public class Room1BlackTerminal : MonoBehaviour
     public AudioClip[] doorClip;
     public bool doorSound;
     //Audio For Button Sound
-    public AudioSource[] button;
+    public AudioSource button;
     public AudioClip[] buttonClip;
     //public bool buttonSound; //We may or may not use this depending on how it sounds
     //Stuff that alex did
@@ -44,13 +44,14 @@ public class Room1BlackTerminal : MonoBehaviour
                 anim.SetBool("boxPresent", true);
                 if (other.gameObject.name.IndexOf(correctCubeColor) != -1)
                 {
-                    
+					PlayerAS [0].Stop ();
+					//FIXME if light noises, play here
                     anim.SetBool("CorrectAnswer", true);
                     anim.SetBool("WrongAnswer", false);
                     button.PlayOneShot(buttonClip[0]);//If it sounds bad put this in if
                     if (doorSound)
                     {
-                        doors.PlayOneShot(doorClip[0]);
+						PlayerAS[0].PlayOneShot(doorClip[0]);
                     }
                     CorrectEffect();
 
@@ -74,7 +75,7 @@ public class Room1BlackTerminal : MonoBehaviour
                 UndoCorrectEffect();
                 if (doorSound)
                 {
-                    doors.PlayOneShot(doorClip[1]);
+					PlayerAS[0].PlayOneShot(doorClip[1]);
                 }
             }
             if (anim.GetBool("WrongAnswer") && undoWrong) {
