@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ButtonTerminal : MonoBehaviour
+public class Room1BlackTerminal : MonoBehaviour
 {
     public Animator anim;
     public string correctCubeColor;
@@ -11,7 +11,7 @@ public class ButtonTerminal : MonoBehaviour
     public bool undoWrong;
 
     //Audio For Doors
-    public AudioSource[] doors;
+    public AudioSource[] PlayerAS;
     public AudioClip[] doorClip;
     public bool doorSound;
     //Audio For Button Sound
@@ -47,17 +47,17 @@ public class ButtonTerminal : MonoBehaviour
                     
                     anim.SetBool("CorrectAnswer", true);
                     anim.SetBool("WrongAnswer", false);
-                    button[0].PlayOneShot(buttonClip[0]);//If it sounds bad put this in if
+                    button.PlayOneShot(buttonClip[0]);//If it sounds bad put this in if
                     if (doorSound)
                     {
-                        doors[0].PlayOneShot(doorClip[0]);
+                        doors.PlayOneShot(doorClip[0]);
                     }
                     CorrectEffect();
 
                 }
                 else
                 {
-                    button[0].PlayOneShot(buttonClip[1]);//If it sounds bad put this in if
+                    button.PlayOneShot(buttonClip[1]);//If it sounds bad put this in if
                     WrongEffect();
                     anim.SetBool("CorrectAnswer", false);
                     anim.SetBool("WrongAnswer", true);
@@ -74,7 +74,7 @@ public class ButtonTerminal : MonoBehaviour
                 UndoCorrectEffect();
                 if (doorSound)
                 {
-                    doors[0].PlayOneShot(doorClip[1]);
+                    doors.PlayOneShot(doorClip[1]);
                 }
             }
             if (anim.GetBool("WrongAnswer") && undoWrong) {
