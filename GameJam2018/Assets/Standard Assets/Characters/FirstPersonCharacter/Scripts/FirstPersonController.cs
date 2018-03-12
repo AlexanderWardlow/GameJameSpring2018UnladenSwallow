@@ -41,6 +41,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private float m_NextStep;
         private bool m_Jumping;
         private AudioSource m_AudioSource;
+		public float fallingSpeedLimit;
 
         // Use this for initialization
         private void Start()
@@ -78,6 +79,9 @@ namespace UnityStandardAssets.Characters.FirstPerson
             {
                 m_MoveDir.y = 0f;
             }
+
+			m_MoveDir.y = Mathf.Clamp(m_MoveDir.y, -fallingSpeedLimit, fallingSpeedLimit);
+			print (m_MoveDir.y);
 
             m_PreviouslyGrounded = m_CharacterController.isGrounded;
         }

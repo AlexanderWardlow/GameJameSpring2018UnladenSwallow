@@ -10,11 +10,11 @@ public class RotatePlayer : MonoBehaviour {
 
 	private float verticalRotation;
 
-	void FixedUpdate () {
+	void Update () {
 		float h = Input.GetAxis ("Mouse X") * 2;
 		transform.Rotate(0, h, 0);
 		verticalRotation -= Input.GetAxis ("Mouse Y") * 2;
-		verticalRotation = Mathf.Clamp (verticalRotation, -90, 90);
+		verticalRotation = Mathf.Clamp (verticalRotation, -80, 80);
 		playerCam.localRotation = Quaternion.Euler (verticalRotation, 0, 0);
 	}
 }
