@@ -12,6 +12,7 @@ public class Lv1To2Transition : MonoBehaviour {
 	void OnTriggerEnter(Collider other) {
 		lv1.gameObject.SetActive (false);
 		musicAS.PlayOneShot (Song);
+		musicAS.loop = true;
 	}
 
 	void OnTriggerExit(Collider other) {

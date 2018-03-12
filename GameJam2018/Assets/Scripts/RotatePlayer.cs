@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class RotatePlayer : MonoBehaviour {
 
-	public float rotationSpeed = 2.0f;
-	public float cameraSpeed = 1.0f;
+	public float rotationSpeed = 8.0f;
+	public float cameraSpeed = 4.0f;
 	public Transform playerCam;
 
 	private float verticalRotation;
