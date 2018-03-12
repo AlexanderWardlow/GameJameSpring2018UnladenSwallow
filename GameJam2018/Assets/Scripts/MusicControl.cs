@@ -4,13 +4,18 @@ using UnityEngine;
 
 public class MusicControl : MonoBehaviour {
 
+	public AudioSource aS;
+	public AudioClip song;
+	private bool isFirstTime = true;
+
 	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+	void OnTriggerEnter(){
+		if (isFirstTime) {
+			aS.clip = song;
+			aS.loop = true;
+			aS.Play ();	
+			isFirstTime = false;
+		}
+
 	}
 }

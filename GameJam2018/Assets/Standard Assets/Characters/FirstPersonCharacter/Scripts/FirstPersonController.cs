@@ -79,9 +79,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
             {
                 m_MoveDir.y = 0f;
             }
-
+			//added By Alexander Wardlow
 			m_MoveDir.y = Mathf.Clamp(m_MoveDir.y, -fallingSpeedLimit, fallingSpeedLimit);
-			print (m_MoveDir.y);
 
             m_PreviouslyGrounded = m_CharacterController.isGrounded;
         }

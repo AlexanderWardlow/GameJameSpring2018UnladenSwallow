@@ -6,17 +6,13 @@ public class Lv1To2Transition : MonoBehaviour {
 	public Transform lv1;
 	public Transform lv2;
 	public Transform player;
-	public AudioSource musicAS;
-	public AudioClip Song;
 
 	void OnTriggerEnter(Collider other) {
-		lv1.gameObject.SetActive (false);
-		musicAS.PlayOneShot (Song);
-		musicAS.loop = true;
+		lv2.gameObject.SetActive (true);
 	}
 
 	void OnTriggerExit(Collider other) {
-		lv2.gameObject.SetActive (true);
+		lv1.gameObject.SetActive (false);
 		Transform spawn = lv2.GetChild (0);
 		player.transform.position = spawn.position;
 		transform.gameObject.SetActive (false);
