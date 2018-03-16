@@ -9,13 +9,15 @@ public class MusicControl : MonoBehaviour {
 	private bool isFirstTime = true;
 
 	// Use this for initialization
-	void OnTriggerEnter(){
-		if (isFirstTime) {
-			aS.clip = song;
-			aS.loop = true;
-			aS.Play ();	
-			isFirstTime = false;
+	void OnTriggerEnter(Collider other){
+		if (other.tag == "Player") {
+			if (isFirstTime) {
+				aS.clip = song;
+				aS.loop = true;
+				aS.Play ();	
+				isFirstTime = false;
+			}
 		}
-
 	}
+
 }

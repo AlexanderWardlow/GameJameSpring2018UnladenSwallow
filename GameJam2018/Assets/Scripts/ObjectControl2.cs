@@ -11,21 +11,21 @@ public class ObjectControl2 : MonoBehaviour {
 	public Transform onHand;
 
 	private GameObject objectPickedUp;
-	private Transform pickedUpObjectParent;
+	static public Transform pickedUpObjectParent;
 	private GameObject objectLookedAt;
 
 	private RaycastHit hit;
 	private Vector3 fwd;
-	private float rayLength = 3.0f;
+	public float rayLength = 3.0f;
 
 	void Start() {
-		fwd = transform.TransformDirection(Vector3.forward);
+		fwd = transform.forward;
 		guiShow = false;
 	}
 
 	void Update() {
-		fwd = transform.TransformDirection(Vector3.forward);
-		if(Physics.Raycast(transform.position, fwd, out hit, rayLength)) {
+		fwd = transform.forward;
+		if(Physics.Raycast(transform.position, transform.forward, out hit, rayLength)) {
 			if(hit.collider.gameObject.tag == "OpenDoor") {
 				guiShow = true;
 				objectLookedAt = hit.collider.gameObject;
@@ -62,12 +62,6 @@ public class ObjectControl2 : MonoBehaviour {
 					pickedUp = false;
 					guiShow = false;
 				}
-			}
-
-			else if(Input.GetKeyDown("e") && (pickedUp == true)) {
-				drop(objectPickedUp);
-				pickedUp = false;
-				guiShow = false;
 			}
 
 			else {
@@ -110,6 +104,7 @@ public class ObjectControl2 : MonoBehaviour {
 	void pickUp(GameObject oPU) {
 		GameObject object1;
 		object1 = oPU;
+		object1.layer = 9;
 		object1.GetComponent<Rigidbody>().useGravity = false;
 		object1.GetComponent<Rigidbody>().isKinematic = true;
 		object1.transform.position = onHand.position;
@@ -119,7 +114,8 @@ public class ObjectControl2 : MonoBehaviour {
 		object1.transform.parent= GameObject.Find("FirstPersonCharacter").transform;
 	}
 
-	void drop(GameObject object1) {
+	public static void drop(GameObject object1) {
+		object1.layer = 0;
 		object1.transform.parent = pickedUpObjectParent;
 		object1.GetComponent<Rigidbody>().useGravity = true;
 		object1.GetComponent<Rigidbody>().isKinematic = false;

@@ -8,13 +8,17 @@ public class Lv1To2Transition : MonoBehaviour {
 	public Transform player;
 
 	void OnTriggerEnter(Collider other) {
-		lv2.gameObject.SetActive (true);
+		if (other.tag == "Player") {
+			lv2.gameObject.SetActive (true);	
+		}
 	}
 
 	void OnTriggerExit(Collider other) {
-		lv1.gameObject.SetActive (false);
-		Transform spawn = lv2.GetChild (0);
-		player.transform.position = spawn.position;
-		transform.gameObject.SetActive (false);
+		if (other.tag == "Player") {
+			lv1.gameObject.SetActive (false);
+			Transform spawn = lv2.GetChild (0);
+			player.transform.position = spawn.position;
+			transform.gameObject.SetActive (false);
+		}
 	}
 }

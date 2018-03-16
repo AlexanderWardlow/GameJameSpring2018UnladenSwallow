@@ -21,9 +21,14 @@ Platform assembly: C:\Users\alexw\Documents\GitHub\GameJameSpring2018UnladenSwal
 Loading C:\Users\alexw\Documents\GitHub\GameJameSpring2018UnladenSwallow\GameJam2018\JustConfused_Wardlow_Bozarth_FinalV5_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
 Platform assembly: C:\Users\alexw\Documents\GitHub\GameJameSpring2018UnladenSwallow\GameJam2018\JustConfused_Wardlow_Bozarth_FinalV5_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
 Loading C:\Users\alexw\Documents\GitHub\GameJameSpring2018UnladenSwallow\GameJam2018\JustConfused_Wardlow_Bozarth_FinalV5_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
-- Completed reload, in  0.354 seconds
+- Completed reload, in  0.351 seconds
 Platform assembly: C:\Users\alexw\Documents\GitHub\GameJameSpring2018UnladenSwallow\GameJam2018\JustConfused_Wardlow_Bozarth_FinalV5_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: C:\Users\alexw\Documents\GitHub\GameJameSpring2018UnladenSwallow\GameJam2018\JustConfused_Wardlow_Bozarth_FinalV5_Data\Managed\System.dll (this message is harmless)
 desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 1.360986 ms
+Setting up 2 worker threads for Enlighten.
+  Thread -> id: 2c14 -> priority: 1 
+  Thread -> id: 4e00 -> priority: 1 

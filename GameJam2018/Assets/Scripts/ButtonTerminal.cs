@@ -6,7 +6,6 @@ public class ButtonTerminal : MonoBehaviour
 {
     public Animator anim;
     public string correctCubeColor;
-    public bool cantPickupAfter;
     public bool undoCor;
     public bool undoWrong;
 
@@ -29,69 +28,65 @@ public class ButtonTerminal : MonoBehaviour
     public Transform[] WrongactiveOn;
     public Transform[] WrongactiveOff;
 
-    void OnTriggerEnter(Collider other)
-    {
-        //FIXME need to convert the objectControl to a c# class and check if object can be picked up
-        if (!anim.GetBool("boxPresent"))
-        {
-            if (other.gameObject.tag == "PickUpAble")
-            {
-                if (cantPickupAfter)
-                {
-                    other.gameObject.tag = "Untagged";
-                }
+	private int numCubesDetected = 0;
 
-                anim.SetBool("boxPresent", true);
-                if (other.gameObject.name.IndexOf(correctCubeColor) != -1)
-                {
+    void OnTriggerEnter(Collider other) {
+        if (!anim.GetBool("boxPresent")) {
+            if (other.gameObject.tag == "PickUpAble") {
+				if (numCubesDetected == 0) {
+					anim.SetBool ("boxPresent", true);
+					if (other.gameObject.name.IndexOf (correctCubeColor) != -1) {
                     
-                    anim.SetBool("CorrectAnswer", true);
-                    anim.SetBool("WrongAnswer", false);
+						anim.SetBool ("CorrectAnswer", true);
+						anim.SetBool ("WrongAnswer", false);
 
-                    button.PlayOneShot(buttonClip[0]);//If it sounds bad put this in if
+						button.PlayOneShot (buttonClip [0]);//If it sounds bad put this in if
 
-                    if (doorSound)
-                    {
-                        doors[0].PlayOneShot(doorClip[0]);
-                    }
-                    CorrectEffect();
+						if (doorSound) {
+							doors [0].PlayOneShot (doorClip [0]);
+						}
+						CorrectEffect ();
 
-                }
-                else
-                {
-                    button.PlayOneShot(buttonClip[1]);//If it sounds bad put this in if
-                    WrongEffect();
-                    anim.SetBool("CorrectAnswer", false);
-                    anim.SetBool("WrongAnswer", true);
-                }
+					} 
+					else {
+						button.PlayOneShot (buttonClip [1]);//If it sounds bad put this in if
+						WrongEffect ();
+						anim.SetBool ("CorrectAnswer", false);
+						anim.SetBool ("WrongAnswer", true);
+					}
+				}
+				numCubesDetected++;
             }
         }
     }
 
-    void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.tag == "PickUpAble")
-        {
-            if (anim.GetBool("CorrectAnswer") && undoCor) {
-                UndoCorrectEffect();
-                if (doorSound)
-                {
-                    doors[0].PlayOneShot(doorClip[1]);
-                }
-            }
-            if (anim.GetBool("WrongAnswer") && undoWrong) {
-                UndoWrongEffect();
-            }
-            anim.SetBool("CorrectAnswer", false);
-            anim.SetBool("WrongAnswer", false);
-            anim.SetBool("boxPresent", false);
-        }
+    void OnTriggerExit(Collider other) {
+	    if (other.gameObject.tag == "PickUpAble") {
+			if (numCubesDetected == 1) {
+	            if (anim.GetBool ("CorrectAnswer") && undoCor) {
+	                UndoCorrectEffect ();
+	                if (doorSound) {
+	                    doors[0].PlayOneShot (doorClip[1]);
+	                }
+	            }
+	            if (anim.GetBool ("WrongAnswer") && undoWrong) {
+	                UndoWrongEffect ();
+	            }
+	            anim.SetBool ("CorrectAnswer", false);
+	            anim.SetBool ("WrongAnswer", false);
+	            anim.SetBool ("boxPresent", false);
+			}
+			numCubesDetected--;
+		}
     }
 
 	void OnTriggerStay(Collider other) {
-		if (ObjectControl2.pickedUp == false) {
-			if (other.tag == "PickUpAble") {
-				other.transform.position = transform.position;
+		if (other.tag == "PickUpAble") {
+			if (ObjectControl2.pickedUp == false) {
+				if (numCubesDetected == 1) {
+					other.transform.position = transform.position;
+					other.transform.rotation = new Quaternion (0, 0, 0, 0);
+				}
 			}
 		}
 	}

@@ -24,7 +24,6 @@ public class PortalTeleport : MonoBehaviour {
 
 				playerInField = false;
 			}
-		
 		}
 	}
 
