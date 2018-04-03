@@ -64,6 +64,15 @@ public class ObjectControl2 : MonoBehaviour {
 				}
 			}
 
+			else if(hit.collider.gameObject.tag == "Button") {
+				guiShow = true;
+				objectLookedAt = hit.collider.gameObject;
+				if(Input.GetKeyDown("e")) {
+					pressButton(objectLookedAt);
+					guiShow = false;
+				}
+			}
+
 			else {
 				guiShow = false;
 			}
@@ -96,6 +105,12 @@ public class ObjectControl2 : MonoBehaviour {
 			else if (hit.collider.gameObject.tag == "PickUpAble") {
 				if (guiShow == true && pickedUp == false) { 
 					GUI.Box(R, "Pick Up");
+				}
+			}
+
+			else if(hit.collider.gameObject.tag == "Button") {
+				if (guiShow == true) {
+					GUI.Box(R, "Press Button");
 				}
 			}
 		} 
@@ -131,6 +146,10 @@ public class ObjectControl2 : MonoBehaviour {
 		door.GetComponent<Animation>().Play("DoorClose");
 		door.GetComponent<AudioSource>().PlayOneShot(closeDoorSound);
 		objectLookedAt.tag = "ClosedDoor";
+	}
+
+	void pressButton(GameObject Button) {
+		Button.transform.parent.GetComponent<Button> ().Enable = true;
 	}
 
 }

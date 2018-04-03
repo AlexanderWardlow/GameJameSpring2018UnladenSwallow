@@ -63,20 +63,17 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private void Update()
         {
             // the jump state needs to read here to make sure it is not missed
-            if (!m_Jump)
-            {
+            if (!m_Jump) {
                 m_Jump = CrossPlatformInputManager.GetButtonDown("Jump");
             }
 
-            if (!m_PreviouslyGrounded && m_CharacterController.isGrounded)
-            {
+            if (!m_PreviouslyGrounded && m_CharacterController.isGrounded) {
                 StartCoroutine(m_JumpBob.DoBobCycle());
                 PlayLandingSound();
                 m_MoveDir.y = 0f;
                 m_Jumping = false;
             }
-            if (!m_CharacterController.isGrounded && !m_Jumping && m_PreviouslyGrounded)
-            {
+            if (!m_CharacterController.isGrounded && !m_Jumping && m_PreviouslyGrounded) {
                 m_MoveDir.y = 0f;
             }
 			//added By Alexander Wardlow
@@ -86,16 +83,14 @@ namespace UnityStandardAssets.Characters.FirstPerson
         }
 
 
-        private void PlayLandingSound()
-        {
+        private void PlayLandingSound() {
             m_AudioSource.clip = m_LandSound;
             m_AudioSource.Play();
             m_NextStep = m_StepCycle + .5f;
         }
 
 
-        private void FixedUpdate()
-        {
+        private void FixedUpdate() {
             float speed;
             GetInput(out speed);
             // always move along the camera forward as it is the direction that it being aimed at
@@ -127,6 +122,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             {
                 m_MoveDir += Physics.gravity*m_GravityMultiplier*Time.fixedDeltaTime;
             }
+
             m_CollisionFlags = m_CharacterController.Move(m_MoveDir*Time.fixedDeltaTime);
 
             ProgressStepCycle(speed);
@@ -148,7 +144,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             if (m_CharacterController.velocity.sqrMagnitude > 0 && (m_Input.x != 0 || m_Input.y != 0))
             {
                 m_StepCycle += (m_CharacterController.velocity.magnitude + (speed*(m_IsWalking ? 1f : m_RunstepLenghten)))*
-                             Time.fixedDeltaTime;
+                Time.fixedDeltaTime;
             }
 
             if (!(m_StepCycle > m_NextStep))
@@ -179,15 +175,12 @@ namespace UnityStandardAssets.Characters.FirstPerson
         }
 
 
-        private void UpdateCameraPosition(float speed)
-        {
+        private void UpdateCameraPosition(float speed) {
             Vector3 newCameraPosition;
-            if (!m_UseHeadBob)
-            {
+            if (!m_UseHeadBob) {
                 return;
             }
-            if (m_CharacterController.velocity.magnitude > 0 && m_CharacterController.isGrounded)
-            {
+            if (m_CharacterController.velocity.magnitude > 0 && m_CharacterController.isGrounded) {
                 m_Camera.transform.localPosition =
                     m_HeadBob.DoHeadBob(m_CharacterController.velocity.magnitude +
                                       (speed*(m_IsWalking ? 1f : m_RunstepLenghten)));

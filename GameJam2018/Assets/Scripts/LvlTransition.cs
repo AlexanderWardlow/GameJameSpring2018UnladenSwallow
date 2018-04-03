@@ -9,13 +9,17 @@ public class LvlTransition: MonoBehaviour {
 
 	void OnTriggerEnter(Collider other) {
 		if (other.tag == "Player") {
-			lv2.gameObject.SetActive (true);
+			if (lv2 != null) {
+				lv2.gameObject.SetActive (true);
+			}
 		}
 	}
 
 	void OnTriggerExit(Collider other) {
 		if (other.tag == "Player") {
-			lv1.gameObject.SetActive (false);
+			if (lv1 != null) {
+				lv1.gameObject.SetActive (false);
+			}
 			transform.gameObject.SetActive (false);
 		}
 	}

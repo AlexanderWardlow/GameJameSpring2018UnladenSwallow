@@ -15,7 +15,6 @@ namespace UnityStandardAssets.Utility
 
         private SpringJoint m_SpringJoint;
 
-
         private void Update()
         {
             // Make sure the user pressed the mouse down
